@@ -12,6 +12,20 @@ var albumPicasso = {
         { title: 'Magenta', duration: '2:15'}        
     ]
 };
+var albumKanye = {
+    title: 'The Life of Pablo',
+    artist: 'Kanye West', 
+    label: 'GOOD Music',
+    year: '2016',
+    albumArtUrl: 'assets/images/album_covers/03.png',
+    songs: [
+        { title: 'Ultra Light Beam', duration: '5:20'},
+        { title: 'Father Stretch My Hands', duration: '2:15'},
+        { title: 'Famous', duration: '3:14'},
+        { title: 'Feedback', duration: '2:35'},
+        { title: 'Low Lights', duration: '2:11'}        
+    ]
+};
 var albumMarconi = {
     title: 'The Telephone',
     artist: 'Guglielmo Marconi',
@@ -57,4 +71,12 @@ var setCurrentAlbum = function(album){
 
 window.onload = function(){
     setCurrentAlbum(albumMarconi);
+    var albums = [albumMarconi, albumKanye, albumPicasso];
+    var index = 1;
+    var albumArt = document.getElementsByClassName('album-cover-art')[0];
+    albumArt.addEventListener('click', function(){
+        setCurrentAlbum(albums[index]);
+        index>1? index = 0:index++;
+    } );
 };
+
