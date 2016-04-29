@@ -141,10 +141,13 @@ var updatePlayerBarSong = function(){
     $artist.html(currentAlbum.artist);
     $('.main-controls .play-pause').html(playBarPauseButton);
 };
+var togglePlayFromPlayerBar = function(){
 
+};
 $(document).ready(function(){
     setCurrentAlbum(albumPicasso);
 
     $nextButton.click({direction: "next"},nextSong);
     $prevButton.click({direction: "prev"}, nextSong);
+    $playButton.click(togglePlayFromPlayerBar);
 });
