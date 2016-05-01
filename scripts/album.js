@@ -142,7 +142,17 @@ var updatePlayerBarSong = function(){
     $('.main-controls .play-pause').html(playBarPauseButton);
 };
 var togglePlayFromPlayerBar = function(){
-
+    var song = getSongNumberCell(currentlyPlayingSongNumber);
+    
+    if (currentSoundFile.isPaused()){
+        song.html(pauseButtonTemplate);
+        $(this).html(pauseButtonTemplate);
+        currentSoundFile.play();
+    }else{
+        song.html(playButtonTemplate);
+        $(this).html(playButtonTemplate);
+        currentSoundFile.pause();
+    }
 };
 $(document).ready(function(){
     setCurrentAlbum(albumPicasso);
